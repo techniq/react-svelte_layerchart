@@ -17,13 +17,13 @@ export default {
       ],
     });
 
-    // config.module.rules.push({
-    //     test: /\.m?js/,
-    //     resolve: {
-    //       fullySpecified: false
-    //     }
-    //   }
-    // );
+    config.module.rules.push({
+      // required to prevent errors from Svelte on Webpack 5+, omit on Webpack 4
+      test: /node_modules\/svelte\/.*\.mjs$/,
+      resolve: {
+        fullySpecified: false
+      }
+    });
 
     // Resolve svelte imports correctly (including internal paths)
     // Ensure svelte/internal is resolved correctly
@@ -31,12 +31,15 @@ export default {
       ...config.resolve.alias,
       svelte: path.resolve("node_modules", "svelte/src/runtime"),
       // layerchart: path.resolve('node_modules', 'layerchart'),
-      '@layerstack/utils': path.resolve('node_modules', '@layerstack/utils'),
-      '@layerstack/tailwind': path.resolve('node_modules', '@layerstack/tailwind')
+      // '@layerstack/utils': path.resolve('node_modules', '@layerstack/utils'),
+      // '@layerstack/tailwind': path.resolve('node_modules', '@layerstack/tailwind')
     };
 
     // Ensure that `.svelte` extension is handled by Webpack
     config.resolve.extensions.push(".svelte");
+
+    config.resolve.mainFields = ["svelte", "browser", "...", "module", "main"];
+    config.resolve.conditionNames = ["svelte", "browser", "...", "import", "require", "default"];
 
     return config;
   },
