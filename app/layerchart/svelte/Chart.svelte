@@ -19,7 +19,9 @@
     y={yKey}
     bandPadding={0.05}
     props={{
+      xAxis: { tweened: { duration: 200 } },
       yAxis: { format: "none" },
+      bars: { tweened: { duration: 200 } },
     }}
   />
 </div>
