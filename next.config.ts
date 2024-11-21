@@ -17,13 +17,13 @@ export default {
       ],
     });
 
-    config.module.rules.push({
-      // required to prevent errors from Svelte on Webpack 5+, omit on Webpack 4
-      test: /node_modules\/svelte\/.*\.mjs$/,
-      resolve: {
-        fullySpecified: false
-      }
-    });
+    // config.module.rules.push({
+    //   // required to prevent errors from Svelte on Webpack 5+, omit on Webpack 4
+    //   test: /node_modules\/svelte\/.*\.mjs$/,
+    //   resolve: {
+    //     fullySpecified: false
+    //   }
+    // });
 
     // Resolve svelte imports correctly (including internal paths)
     // Ensure svelte/internal is resolved correctly
@@ -38,8 +38,8 @@ export default {
     // Ensure that `.svelte` extension is handled by Webpack
     config.resolve.extensions.push(".svelte");
 
-    config.resolve.mainFields = ["svelte", "browser", "...", "module", "main"];
-    config.resolve.conditionNames = ["svelte", "browser", "...", "import", "require", "default"];
+    // config.resolve.mainFields = ["svelte", "browser", "...", "module", "main"];
+    // config.resolve.conditionNames = ["svelte", "browser", "...", "import", "require", "default"];
 
     return config;
   },
