@@ -9,8 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@types/node": "^22.9.1",
-    "@types/react": "^18.3.12",
     "d3-array": "^3.2.4",
     "d3-scale": "^4.0.2",
     "eslint": "^8",
@@ -22,7 +20,14 @@
     "react-dom": "19.0.0-rc-66855b96-20241106",
     "svelte": "^4",
     "svelte-loader": "^3.2.4",
-    "svelte-preprocess": "^6.0.3",
+    "svelte-preprocess": "^6.0.3"
+  },
+  "devDependencies": {
+    "@types/node": "^22.9.1",
+    "@types/react": "^18.3.12",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.15",
     "typescript": "^5.6.3"
   }
 }
