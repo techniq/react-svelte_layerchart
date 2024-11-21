@@ -1,7 +1,5 @@
 <script>
-  // import { Chart, Svg, Axis, Bars } from "layerchart";
   import { BarChart } from "layerchart";
-  import { scaleBand } from "d3-scale";
 
   export let data = [];
 
@@ -14,22 +12,16 @@
 </script>
 
 <div class="chart-container">
-  <!-- <Chart
+  <BarChart
     {data}
+    orientation="horizontal"
     x={xKey}
     y={yKey}
-    yScale={scaleBand().paddingInner(0.05)}
-    xDomain={[0, null]}
-    padding={{ bottom: 20, left: 35 }}
-  >
-    <Svg>
-      <Axis placement="bottom" />
-      <Axis placement="left" />
-      <Bars />
-    </Svg>
-  </Chart> -->
-
-  <BarChart {data} x={xKey} y={yKey} groupPadding={0.05} />
+    bandPadding={0.05}
+    props={{
+      yAxis: { format: "none" },
+    }}
+  />
 </div>
 
 <style>
