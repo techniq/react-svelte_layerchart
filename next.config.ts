@@ -17,11 +17,22 @@ export default {
       ],
     });
 
+    // config.module.rules.push({
+    //     test: /\.m?js/,
+    //     resolve: {
+    //       fullySpecified: false
+    //     }
+    //   }
+    // );
+
     // Resolve svelte imports correctly (including internal paths)
     // Ensure svelte/internal is resolved correctly
     config.resolve.alias = {
       ...config.resolve.alias,
       svelte: path.resolve("node_modules", "svelte/src/runtime"),
+      // layerchart: path.resolve('node_modules', 'layerchart'),
+      '@layerstack/utils': path.resolve('node_modules', '@layerstack/utils'),
+      '@layerstack/tailwind': path.resolve('node_modules', '@layerstack/tailwind')
     };
 
     // Ensure that `.svelte` extension is handled by Webpack
